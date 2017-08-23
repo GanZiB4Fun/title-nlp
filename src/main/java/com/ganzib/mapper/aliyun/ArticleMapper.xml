@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ganzib.mapper.aliyun.ArticleMapper">
+
+    <select id="getTitleList" resultType="java.lang.String">
+		SELECT title FROM "sogou_weixin"."article_base_copy" WHERE 1=1 AND category_code='010001';
+	</select>
+
+	<select id="getTitleListFrom10W" resultType="java.lang.String" parameterType="string">
+		SELECT title FROM "sogou_weixin"."article_base_10w" WHERE 1=1 AND source=#{source};
+	</select>
+
+	<select id="getMovieView" resultType="com.ganzib.model.SubjectView">
+		SELECT  title,content FROM "sogou_weixin"."subject_review" WHERE 1=1 ;
+	</select>
+
+	<select id="getMovieTitle" resultType="string">
+		SELECT  title,content FROM "sogou_weixin"."subject_review" WHERE 1=1 ;
+	</select>
+</mapper>
